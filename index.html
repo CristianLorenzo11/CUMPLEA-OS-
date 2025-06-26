@@ -1,49 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños MONI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos del modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .modal img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        body.oculto {
+            overflow: hidden;
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-      <img src="c3fc286e3ee5af8035ac6521d4ad9b21.gif" alt="Imagen de celebración" class="celebration-image">
-        <h1 class="title">Feliz Cumpleaños MONI</h1>
+<body onload="mostrarModal()">
+    <!-- Modal con el GIF -->
+    <div id="modalGif" class="modal">
+        <img src="one piece.gif" alt="Feliz Cumpleaños">
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="container" style="display: none;" id="contenidoPrincipal">
+        <img src="feliz cmple-Photoroom.png" alt="Imagen de celebración" class="celebration-image">
+        <h1 class="title">MONI</h1>
         <div class="message">
             <p>¡Que tengas un día lleno de alegría, amor y sorpresas!</p>
-            <p>Que este año nuevo que comenzas esté lleno de éxitos y momentos inolvidables.</p>
-            <p>¡Disfruta tu día al máximo!</p>
-            <p>Gracias por ser siempre una gran persona conmigo. Te quiero mucho.</p>
-            <p>¡Que este nuevo año de vida te traiga muchas bendiciones!</p>
-            <p>con mucho cariño</p>
-            <p>Cristian Lorenzo</p>
-
-
-            <button id="boton-regalo" onclick="cambiarImagen()">Abrir Regalo</button>
-            <br>
-            <img id="imagen1" src="regalo.png" alt="Imagen 1">
-            <img id="imagen2" src="imagen2.jpg" alt="Imagen 2" style="display: none;">
             
-            <script>
-            function cambiarImagen() {
-                var imagen1 = document.getElementById('imagen1');
-                var imagen2 = document.getElementById('imagen2');
-                var boton = document.getElementById ('boton-regalo')
-                
-                if (imagen1.style.display !== 'none') {
-                    imagen1.style.display = 'none';
-                    imagen2.style.display = 'block';
-                    boton.style.display= "none"
-                } else {
-                    imagen1.style.display = 'block';
-                    imagen2.style.display = 'none';
-                }
-            }
-            </script>
-    </script>
-        
+            <p>¡Disfruta tu día al máximo!</p>
+            <p>Gracias por ser siempre una gran persona con nosotros.</p>
+            <p>¡Que este nuevo año de vida te traiga muchas bendiciones!</p>
+            <p>Con mucho cariño</p>
+            <p>Cristian , Sol , Alexis , Pao, Gonsi</p>
+            <p>Nico, Moni F, Lili, Ale, </p>
+
+            
+            <br>
+            <img id="imagen1" src="c3fc286e3ee5af8035ac6521d4ad9b21.gif" alt="Imagen 1">
+            
         </div>
     </div>
+
+    <script>
+        function mostrarModal() {
+            document.body.classList.add('oculto');
+
+            // Mostrar el modal del GIF
+            const modal = document.getElementById('modalGif');
+            const contenido = document.getElementById('contenidoPrincipal');
+            
+            modal.style.display = 'flex';
+
+            // Duración del GIF (en milisegundos), por ejemplo, 5000 = 5 segundos
+            const duracionGif = 5000;
+
+            setTimeout(() => {
+                modal.style.display = 'none';
+                contenido.style.display = 'block';
+                document.body.classList.remove('oculto');
+            }, duracionGif);
+        }
+
+    </script>
 </body>
 </html>
