@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños MONI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins&display=swap" rel="stylesheet">
+
     <style>
         /* Estilos del modal */
         .modal {
@@ -20,18 +21,37 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            animation: fadeInModal 1s ease forwards;
         }
+
         .modal img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 80%;
+            max-height: 80%;
             object-fit: contain;
+            border: 8px solid #ffcc00;
+            border-radius: 30px;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 255, 255, 0.6);
+            animation: zoomIn 1s ease;
         }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         body.oculto {
             overflow: hidden;
         }
     </style>
 </head>
+
 <body onload="mostrarModal()">
+
     <!-- Modal con el GIF -->
     <div id="modalGif" class="modal">
         <img src="one piece.gif" alt="Feliz Cumpleaños">
@@ -43,32 +63,33 @@
         <h1 class="title">MONI</h1>
         <div class="message">
             <p>¡Que tengas un día lleno de alegría, amor y sorpresas!</p>
-            
             <p>¡Disfruta tu día al máximo!</p>
             <p>Gracias por ser siempre una gran persona con nosotros.</p>
             <p>¡Que este nuevo año de vida te traiga muchas bendiciones!</p>
             <p>Con mucho cariño</p>
-            <p>Cristian , Sol , Alexis , Pao, Gonsi</p>
-            <p>Nico, Moni F, Lili, Ale, </p>
-
-            
+            <p>Cristian, Sol, Alexis, Pao, Gonsi</p>
+            <p>Nico, Moni F, Lili, Ale</p>
             <br>
-            <img  src="AAAAAA.jpg" alt="Imagen 1"  class="celebration-image">
-            
+            <img src="AAAAAA.jpg" alt="Imagen 1" class="celebration-image">
         </div>
     </div>
+
+    <!-- Música de fondo -->
+    <audio id="musicaFondo" autoplay>
+  <source src="https://www.orangefreesounds.com/wp-content/uploads/2016/08/Happy-birthday-instrumental.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
+
 
     <script>
         function mostrarModal() {
             document.body.classList.add('oculto');
 
-            // Mostrar el modal del GIF
             const modal = document.getElementById('modalGif');
             const contenido = document.getElementById('contenidoPrincipal');
-            
+
             modal.style.display = 'flex';
 
-            // Duración del GIF (en milisegundos), por ejemplo, 5000 = 5 segundos
             const duracionGif = 5000;
 
             setTimeout(() => {
@@ -76,8 +97,12 @@
                 contenido.style.display = 'block';
                 document.body.classList.remove('oculto');
             }, duracionGif);
-        }
 
+            // Iniciar música de fondo
+            const musica = document.getElementById('musicaFondo');
+            musica.volume = 0.6;
+            musica.play();
+        }
     </script>
 </body>
 </html>
