@@ -73,9 +73,9 @@
         </div>
     </div>
 
-    <!-- Música de fondo -->
+    <!-- 🎵 Música de fondo -->
     <audio id="musicaFondo" autoplay muted loop>
-        <source src="https://www.orangefreesounds.com/wp-content/uploads/2016/08/Happy-birthday-instrumental.mp3" type="audio/mpeg">
+        <source src="happy.mp3" type="audio/mpeg">
         Tu navegador no soporta audio HTML5.
     </audio>
 
@@ -96,11 +96,13 @@
                 document.body.classList.remove('oculto');
             }, duracionGif);
 
-            // Iniciar música de fondo
+            // 🎶 Iniciar música de fondo correctamente
             const musica = document.getElementById('musicaFondo');
-            musica.muted = false;
+            musica.muted = false; // Desmutea para que suene
             musica.volume = 0.4;
-            musica.play();
+            musica.play().catch((e) => {
+                console.log('Error al reproducir la música:', e);
+            });
         }
     </script>
 </body>
